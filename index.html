@@ -1,1 +1,34 @@
-upi://pay?pa=yourupiid@upi&pn=YourName&am=10&cu=INR
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Payment</title>
+</head>
+<body>
+
+    <h2>UPI Payment</h2>
+    <label>Enter Amount:</label>
+    <input type="number" id="amount" placeholder="Enter amount">
+    <button onclick="makePayment()" style="background-color: #4CAF50; color: white; padding: 10px 20px; font-size: 16px; border: none; cursor: pointer;">
+        Pay Now
+    </button>
+
+    <script>
+        function makePayment() {
+            let amount = document.getElementById("amount").value.trim();
+            if (amount === "" || amount <= 0) {
+                alert("Please enter a valid amount!");
+                return;
+            }
+
+            let upiID = "9304525424@amazonpay"; // Aapki UPI ID
+            let name = "YourName";  // Aapka naam (optional)
+            let upiLink = `upi://pay?pa=${upiID}&pn=${name}&am=${amount}&cu=INR`;
+
+            window.location.href = upiLink;
+        }
+    </script>
+
+</body>
+</html>
