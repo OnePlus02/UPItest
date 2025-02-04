@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Payment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .apps_container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 250px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px 0;
+        }
+
+        .apps_container img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .apps_container span {
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .apps_container_icon {
+            margin-left: auto;
+        }
+
+        .pay_mode_label {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .link_a {
+            font-size: 16px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="upi">
+        <p class="pay_mode_label">Pay With UPI <span class="pull-right"><a class="link_a" href="#" data-toggle="modal" data-target="#upiPayment">Next</a></span></p>
+
+        <!-- GPay Payment Button -->
+        <div class="apps_container" data-url="gpay://upi/pay?pa=ccpay.4315811771573021@icici&pn=Zerotize%20tech&am=5&tn=UuknruxjSF&cu=INR&mc=5411">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Google_Pay_logo.svg/1200px-Google_Pay_logo.svg.png" alt="GPay" />
+            <span>GPay</span>
+            <span class="apps_container_icon"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+        </div>
+
+        <!-- PayTM Payment Button -->
+        <div class="apps_container" data-url="paytmmp://pay?pa=ccpay.4315811771573021@icici&pn=Zerotize%20tech&am=5&tn=UuknruxjSF&cu=INR&mc=5411">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Paytm_logo.svg/800px-Paytm_logo.svg.png" alt="PayTM" />
+            <span>PayTM</span>
+            <span class="apps_container_icon"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+        </div>
+
+        <!-- PhonePe Payment Button -->
+        <div class="apps_container" data-url="phonepe://pay?pa=ccpay.4315811771573021@icici&pn=Zerotize%20tech&am=5&tn=UuknruxjSF&cu=INR&mc=5411">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/PhonePe_logo.svg/1024px-PhonePe_logo.svg.png" alt="PhonePe" />
+            <span>PhonePe</span>
+            <span class="apps_container_icon"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+        </div>
+
+        <!-- Other UPI Apps Payment Button -->
+        <div class="apps_container" data-url="upi://pay?pa=ccpay.4315811771573021@icici&pn=Zerotize%20tech&am=5&tn=UuknruxjSF&cu=INR&mc=5411">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/BHIM_UPI_logo.svg/1200px-BHIM_UPI_logo.svg.png" alt="Other UPI Apps" />
+            <span>Other UPI Apps</span>
+            <span class="apps_container_icon"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.apps_container').click(function(){
+                var url = $(this).data('url');
+                if(url) {
+                    window.location.href = url;  // Opens UPI App via the URL in data-url attribute
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
