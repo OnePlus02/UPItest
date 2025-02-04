@@ -1,5 +1,52 @@
-<div class="apps_container" data-url="upi://pay?pa=ccpay.4315811771573021@icici&pn=Zerotize tech&am=3&tn=i8KC2BiJQD&cu=INR&mc=5411">
-    <img src="images/bhim.png" alt="Other UPI Apps" />
-    <span>Other UPI Apps</span>
-    <span class="apps_container_icon"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Payment Button</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        .apps_container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 250px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .apps_container img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .apps_container span {
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .apps_container_icon {
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="apps_container" id="upiPaymentButton">
+        <img src="images/bhim.png" alt="Other UPI Apps" />
+        <span>Pay ₹5 via UPI</span>
+        <span class="apps_container_icon"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+    </div>
+
+    <script>
+        document.getElementById("upiPaymentButton").addEventListener("click", function() {
+            let upiURL = "upi://pay?pa=ccpay.4315811771573021@icici&pn=Zerotize%20Tech&am=5&tn=Payment&cu=INR&mc=5411";
+            window.location.href = upiURL;
+        });
+    </script>
+
+</body>
+</html>
