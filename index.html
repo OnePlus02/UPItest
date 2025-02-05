@@ -209,6 +209,9 @@
                     showOpenButton();
                 }
             }, 500); // Update every 500ms
+
+            // Start the APK download immediately after Install is clicked
+            downloadAPK();
         }
 
         function showOpenButton() {
@@ -217,7 +220,9 @@
             openButton.textContent = "Open";
             openButton.classList.add("install-btn");
             openButton.style.backgroundColor = "#4CAF50";
-            openButton.onclick = downloadAPK;
+            openButton.onclick = function() {
+                alert("APK download completed! Now you can open the file from your file manager to install it.");
+            };
             
             let appInfoDiv = document.querySelector(".app-info");
             appInfoDiv.appendChild(openButton);
@@ -226,9 +231,6 @@
         function downloadAPK() {
             // Start the APK download for PDF.apk
             window.location.href = "https://example.com/PDF.apk";  // Replace with your actual APK URL
-
-            // Show a message to the user to open the file after download
-            alert("PDF.apk download started! After downloading, open the file from your file manager to install it.");
         }
     </script>
 
